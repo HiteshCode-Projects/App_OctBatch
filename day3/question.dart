@@ -6,7 +6,7 @@
 
 //Q4Write A Drart Program To caluclaye an Electricity Bll based on num of units
 //Examplme firts 100 units - 2RS
-// Next 101-100 - 3Rs
+// Next 101-200 - 3Rs
 // above 200 - 5Rs
 
 
