@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "117042126689",
+    "project_id": "novbacth",
+    "storage_bucket": "novbacth.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:117042126689:android:04768ca10e9d5a91d5ef20",
+        "android_client_info": {
+          "package_name": "com.example.myfrontendapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDhXapYmUYG-orGOho3y5S7elUCz7X8bkY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
