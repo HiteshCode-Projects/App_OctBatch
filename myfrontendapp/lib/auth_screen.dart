@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart'; //Authneticcation
+import 'package:cloud_firestore/cloud_firestore.dart'; //Database
+import 'home_screen.dart';
 
 class AuthScreen extends StatefulWidget {
   @override
@@ -12,14 +14,27 @@ class _AuthScreenState extends State<AuthScreen> {
 
   final auth = FirebaseAuth.instance;
 
+  final firestore = FirebaseFirestore.instance; //Database Service
+
   //Sign UP
   void signUp() async {
     try {
-      await auth.createUserWithEmailAndPassword(
+      UserCredential user = await auth.createUserWithEmailAndPassword(
         email: emailController.text,
         password: passwordController.text,
       );
-      print("User created");
+
+      //Save user data in Firestore
+      await firestore.collection('users').doc(user.user!.uid).set({
+        'email': emailController.text,
+        'createdAt': Timestamp.now(),
+      });
+
+      print("User created"); //SnackBar
+
+      Navigator.push(context,
+      MaterialPageRoute(builder: (_)=>HomeScreen()),
+      );
     } catch (e) {
       print(e);
     }
@@ -28,8 +43,15 @@ class _AuthScreenState extends State<AuthScreen> {
   //Login
   void login() async {
     try {
-      await auth.signInWithEmailAndPassword(email: emailController.text, password: passwordController.text);
+      await auth.signInWithEmailAndPassword(
+        email: emailController.text,
+        password: passwordController.text,
+      );
       print("User Logged In");
+      
+      Navigator.push(context,
+      MaterialPageRoute(builder: (_)=>HomeScreen()),
+      );
     } catch (e) {
       print(e);
     }
