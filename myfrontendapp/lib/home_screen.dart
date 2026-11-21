@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart'; //Authneticcation
 import 'package:cloud_firestore/cloud_firestore.dart'; //Database
+import 'notification_service.dart';
 
 class HomeScreen extends StatelessWidget {
   final productController = TextEditingController();
@@ -19,6 +20,8 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    NotificationService.initialize();
+
     return Scaffold(
       appBar: AppBar(
         title: Text("Home"),
